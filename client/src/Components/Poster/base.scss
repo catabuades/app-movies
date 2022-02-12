@@ -1,0 +1,27 @@
+.poster {
+  border-top: 2px solid var(--black);
+  padding: 2rem;
+  &__image {
+    width: 100%;
+  }
+  &__title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 1rem 0 0;
+    text-transform: uppercase;
+  }
+  &__director {
+    font-size: 1.5rem;
+    margin: .5rem 0 0;
+  }
+  &__categories {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+  }
+  &__category {
+    margin: 0 .5rem;
+  }
+}

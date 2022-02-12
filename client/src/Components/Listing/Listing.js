@@ -1,4 +1,4 @@
-import './base.css';
+import './base.scss';
 import Poster from '../Poster/Poster'
 
 function Listing({ movies }) {
