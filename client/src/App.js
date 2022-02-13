@@ -3,6 +3,7 @@ import './App.scss';
 import './mixins.scss'
 import TopBar from './Components/TopBar/TopBar'
 import Listing from './Components/Listing/Listing'
+import Sidebar from './Components/Sidebar/Sidebar';
 
 const arrayMovies = [
   {
@@ -58,6 +59,7 @@ const arrayMovies = [
 function App() {
   return (
     <div className="App">
+      <Sidebar></Sidebar>
       <TopBar></TopBar>
       <Listing movies={arrayMovies}></Listing>
     </div>

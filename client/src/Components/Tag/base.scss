@@ -1,0 +1,15 @@
+.tag {
+  line-height: 0rem;
+  padding: 1rem 1rem 1.2rem;
+  color: var(--white);
+  background-color: var(--black);
+  border-radius: 20px;
+  margin: .5rem;
+  text-decoration: none;
+  border: 2px solid var(--black);
+  &:hover {
+    color: var(--black);
+    background-color: var(--white);
+    transition: background-color 0.4s ease;
+  }
+}

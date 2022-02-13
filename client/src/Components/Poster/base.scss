@@ -1,11 +1,14 @@
 .poster {
   border-top: 2px solid var(--black);
-  padding: 2rem;
+  padding: 1.5rem 1.5rem 1rem;
+  margin-top: -2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   @media only screen and (min-width: 768px) {
     width: 50%;
     box-sizing: border-box;
     border-right: 2px solid var(--black);
-    margin-top: -2px;
     &:nth-child(2n) {
       border-right: none;
     }
@@ -28,19 +31,19 @@
     font-weight: 600;
     margin: 1rem 0 0;
     text-transform: uppercase;
+    display: block;
   }
   &__director {
     font-size: 1.5rem;
     margin: .5rem 0 0;
+    display: block;
   }
   &__categories {
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
+    margin: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-  }
-  &__category {
-    margin: 0 .5rem;
   }
 }
