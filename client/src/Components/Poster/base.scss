@@ -1,6 +1,25 @@
 .poster {
   border-top: 2px solid var(--black);
   padding: 2rem;
+  @media only screen and (min-width: 768px) {
+    width: 50%;
+    box-sizing: border-box;
+    border-right: 2px solid var(--black);
+    margin-top: -2px;
+    &:nth-child(2n) {
+      border-right: none;
+    }
+  }
+  @media only screen and (min-width: 1024px) {
+    width: 33.33%;
+    border-right: 2px solid var(--black);
+    &:nth-child(2n) {
+      border-right: 2px solid var(--black);
+    }
+    &:nth-child(3n) {
+      border-right: none;
+    }
+  }
   &__image {
     width: 100%;
   }
