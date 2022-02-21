@@ -1,0 +1,17 @@
+.Button {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: var(--black);
+  border: 2px solid var(--black);
+  width: calc(100% - 3rem);
+  height: 2.5rem;
+  cursor: pointer;
+  &:hover {
+    color: var(--black);
+    background-color: var(--white);
+    transition: background-color 0.4s ease;
+  }
+}
