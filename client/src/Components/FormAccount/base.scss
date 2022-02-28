@@ -1,6 +1,10 @@
+.FormWrapper {
+  width: 400px;
+  height: auto;
+  margin: 0 auto;
+}
+
 .FormAccount {
-  max-width: 300px;
-  margin: 2rem 0 2rem auto;
   &__input {
     display: flex;
     flex-direction: column;

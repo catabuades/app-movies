@@ -1,10 +1,13 @@
 import './base.scss';
+import { NavLink } from "react-router-dom";
 
-function TopBar({  }) {
+function TopBar() {
   return (
-    <div className="topBar">
-      <a href="" className="topBar__link">ACCOUNT</a>
-    </div>
+    <>
+      <div className="topBar">
+        <NavLink className={data => `topBar__link ${data.isActive ? "active" : ""}`} to="/login">ACCOUNT</NavLink>
+      </div>
+    </>
   );
 }
 

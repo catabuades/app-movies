@@ -9,7 +9,7 @@ function Rating({ rating }) {
     const stars = new Array(rating).fill(1)
 
     for (let i = 0; i < rating; i++) {
-      stars.push(<span key={i} class="fa fa-star Rating__star active"></span>)
+      stars.push(<span key={i} className="fa fa-star Rating__star active"></span>)
     }
 
     return stars
@@ -17,15 +17,15 @@ function Rating({ rating }) {
   
 
   return (
-    <div class="Rating">
-      <div class="Rating__under">
-        <span class="fa fa-star Rating__star"></span>
-        <span class="fa fa-star Rating__star"></span>
-        <span class="fa fa-star Rating__star"></span>
-        <span class="fa fa-star Rating__star"></span>
-        <span class="fa fa-star Rating__star"></span>
+    <div className="Rating">
+      <div className="Rating__under">
+        <span className="fa fa-star Rating__star"></span>
+        <span className="fa fa-star Rating__star"></span>
+        <span className="fa fa-star Rating__star"></span>
+        <span className="fa fa-star Rating__star"></span>
+        <span className="fa fa-star Rating__star"></span>
       </div>
-      <div class="Rating__over">
+      <div className="Rating__over">
         {handleConvertRatingToStars}
       </div>
     </div>

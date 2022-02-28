@@ -1,5 +1,9 @@
-.Listing {
-  margin-left: 2.5rem;
+.listing {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.listingGrid {
   @media only screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;

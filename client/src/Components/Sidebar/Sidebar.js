@@ -1,16 +1,16 @@
 import './base.scss';
 
-function Sidebar() {
+function Sidebar({ onOpenSidebar }) {
   return (
-    <div className="sidebar">
-      <div className="sidebar__toggle">
-        <span className="sidebar__link">Filters</span>
-        <input type="checkbox" />
-        <ul className="sidebar__menu">
-          <p>hola</p>
-        </ul>
+    <>
+      <div className="sidebar app-sidebar" onClick={onOpenSidebar}>
+        <div className="sidebar--fixed">
+          <div className="sidebar__toggle">
+            <span className="sidebar__link">Filters</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
