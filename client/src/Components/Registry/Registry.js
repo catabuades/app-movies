@@ -1,5 +1,6 @@
-import './base.scss';
+import './base.scss'
 import React from 'react'
+import { Link } from "react-router-dom"
 import FormAccount from '../FormAccount/FormAccount'
 
 function Registry() {
@@ -7,6 +8,8 @@ function Registry() {
     <>
       <div className="FormWrapper">
         <FormAccount mode="registry"></FormAccount>
+        <p>OR</p>
+        <Link to="/login">LOGIN</Link>
       </div>
     </>
   );
