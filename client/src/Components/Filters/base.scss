@@ -1,0 +1,29 @@
+.filters {
+  max-width: 240px;
+  margin-left: auto;
+  margin-right: 1.5rem;
+  margin-top: 3rem;
+  &.open {
+    animation: fadeIn linear 1.5s;
+  }
+  &__input {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  &__input label {
+    text-align: left;
+    margin-bottom: .5rem;
+    display: block;
+  }
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  50% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.react-select__value-container {
+  justify-content: flex-start;
+}

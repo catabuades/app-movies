@@ -13,11 +13,22 @@ exports.getAllMovies = (req, res, next) => {
 };
 
 exports.getByCategory = (req, res, next) => {
-  Movie.find({ category: req.params.category })
+  Movie.find({ categories: { $regex: req.params.category, $options: 'i' } })
     .then((movies) =>
       res.status(200).json({
         success: true,
         movies: movies,
+      })
+    )
+    .catch((error) => next(error));
+};
+
+exports.getAllCategories = (req, res, next) => {
+  Movie.distinct("categories")
+    .then((categories) =>
+      res.status(200).json({
+        success: true,
+        categories,
       })
     )
     .catch((error) => next(error));
@@ -44,3 +55,4 @@ exports.getMovieById = (req, res, next) => {
     )
   .catch((error) => next(error));
 }
+

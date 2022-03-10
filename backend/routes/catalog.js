@@ -4,6 +4,7 @@ const catalogController = require('../controllers/catalog');
 
 router.get('/', catalogController.getAllMovies);
 router.get('/categories/:category', catalogController.getByCategory);
+router.get('/categories', catalogController.getAllCategories)
 router.get('/search', catalogController.searchByTitle);
 router.get('/:id', catalogController.getMovieById);
 

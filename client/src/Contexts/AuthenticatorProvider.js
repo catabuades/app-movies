@@ -1,9 +1,20 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { getLoggedUser } from "../Services/authService"
 
 export const AuthenticatorContext = React.createContext();
 
 const AuthenticatorProvider = ({ children }) => {
   const [authData, setAuthData] = useState("");
+
+  useEffect(() => {
+    async function load() {
+      const data = await getLoggedUser()
+      if (data) {
+        login(data)
+      }
+    }
+    load()
+  }, [])
 
   const login = (data) => setAuthData(data);
 
