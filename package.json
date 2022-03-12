@@ -1,0 +1,7 @@
+{
+  "name": "application",
+  "version": "0.0.0",
+  "scripts": {
+    "heroku-prebuild": "cd ./backend"
+  }
+}
