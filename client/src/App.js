@@ -10,19 +10,36 @@ import AuthenticatorProvider from './Contexts/AuthenticatorProvider';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import fetchAllMovies from './Services/moviesService';
+import { fetchMoviesByCategory, fetchMoviesByTitle } from './Services/filtersService'
 
 function App() {
   const [movies, setMovies] = useState([])
 
   async function fetchMovies() {
     const data = await fetchAllMovies()
-
     setMovies(data)
   }
 
   useEffect(() => {
     fetchMovies()
   }, [])
+
+  const handleSelectCategory = (category) => {
+    async function fetchMoviesFilterCategory() {
+      const data = await fetchMoviesByCategory(category.value)
+      setMovies(data)
+    }
+    fetchMoviesFilterCategory(category.value)
+  };
+
+  const handleSelectByTitle = (title) => {
+    async function fetchMoviesFilterTitle() {
+      const data = await fetchMoviesByTitle(title)
+      setMovies(data)
+    }
+
+    fetchMoviesFilterTitle(title)
+  }
 
   return (
     <div className="App">
@@ -41,7 +58,14 @@ function App() {
                   <Favourites movies={movies} />
                 </RequireAuth>
               } />
-              <Route path="/" element={<Listing movies={movies} />} />
+              <Route path="/" 
+                element={
+                  <Listing movies={movies} 
+                    onChangeCategory={handleSelectCategory}
+                    onChangeTitle={handleSelectByTitle}
+                  />
+                } 
+              />
             </Routes>
           </main>
           <footer>

@@ -35,14 +35,19 @@ exports.getAllCategories = (req, res, next) => {
 };
 
 exports.searchByTitle = (req, res, next) => {
-  Movie.find({ $text: { $search: req.params.title, $caseSensitive: true } })
+  const titleDecode = decodeURIComponent(req.query.title)
+  console.log(titleDecode)
+  Movie.find({ title: titleDecode })
   .then((movie) =>
     res.status(200).json({
       success: true,
       movie: movie,
     })
   )
-  .catch((error) => next(error));
+  .catch((error) => {
+    console.log(error)
+    next(error)
+  });
 }
 
 exports.getMovieById = (req, res, next) => {

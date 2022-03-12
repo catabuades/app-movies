@@ -18,8 +18,6 @@ function TopBar() {
     navigate("/favourites", { replace: true });
   };
 
-  console.log(authData)
-
   return (
     <>
       {authData === "" && (

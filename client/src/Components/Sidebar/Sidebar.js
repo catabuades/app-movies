@@ -1,8 +1,8 @@
 import './base.scss';
-import React, { useState } from 'react'
+import React from 'react'
 import Filters from '../Filters/Filters'
 
-function Sidebar({ movies, isOpen, onOpenSidebar, onChangeCategory }) {
+function Sidebar({ movies, isOpen, onOpenSidebar, onChangeCategory, onChangeTitle }) {
   const isMobile = window.innerWidth < 768;
 
   return (
@@ -15,6 +15,7 @@ function Sidebar({ movies, isOpen, onOpenSidebar, onChangeCategory }) {
           <div className="sidebar__filters">
             <Filters movies={movies} isOpen={isOpen} 
               onChangeCategory={onChangeCategory}
+              onChangeTitle={onChangeTitle}
             ></Filters>
           </div>
         </div>

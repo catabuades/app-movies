@@ -1,12 +1,11 @@
 import './base.scss';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Select from 'react-select'
 import { fetchMoviesByCategory, fetchMoviesCategories } from '../../Services/filtersService';
 
-function Filters({ movies, isOpen, onChangeCategory }) {
+function Filters({ movies, isOpen, onChangeCategory, onChangeTitle }) {
   const [titles, setTitles] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [category, setCategory] = useState()
   const [directors, setDirectors] = useState([]);
 
   const customStyles = {
@@ -37,15 +36,36 @@ function Filters({ movies, isOpen, onChangeCategory }) {
     )
   }
 
+  const listMoviesTitles = (moviesCopy) => {
+
+    setTitles(
+      moviesCopy.map(movie => ({
+        value: movie.title,
+        label: movie.title
+      }))
+    )
+  }
+
+  console.log(titles)
+
   useEffect(() => {
     fetchAllCategories()
   }, [])
 
+  // useRef isMoviesLoaded false per default, i depres fer un if per comprovar si s'han de tornar a carregar o no
+  useEffect(() => {
+    const moviesCopy = [...movies]
+    listMoviesTitles(moviesCopy)
+  }, [movies])
 
   const handleSelectCategory = (category) => {
     onChangeCategory(category)
   };
 
+
+  const handleSearchTitleChange = (title) => {
+    onChangeTitle(title.value)
+  };
 
   return (
     <>
@@ -71,6 +91,7 @@ function Filters({ movies, isOpen, onChangeCategory }) {
         <div className="filters__input">
           <label>By Title</label>
           <Select 
+            onChange={handleSearchTitleChange}
             styles={customStyles} 
             options={titles} 
             theme={(theme) => ({

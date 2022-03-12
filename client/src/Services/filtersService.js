@@ -23,3 +23,17 @@ export async function fetchMoviesByCategory(category) {
 
   return data.movies
 }
+
+
+const urlMovieByTitle = "/api/movies/search/"
+export async function fetchMoviesByTitle(title) {
+  const response = await fetch(`${urlMovieByTitle}?title=${title}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json"
+    }
+  })
+  const data = await response.json()
+
+  return data.movie
+}
