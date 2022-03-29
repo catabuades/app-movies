@@ -45,10 +45,10 @@ function App() {
     <div className="App">
       <AuthenticatorProvider>
         <Router>
-          <header>
+          <header className="header">
             <TopBar></TopBar>
           </header>
-          <main className="App__grid">
+          <main className="main App__grid">
             {/* Routes shna de posar dintre del embolcall que li pertoca, en general hauría de ser el main */}
             <Routes>
               <Route path="/login" element={<Login />} />

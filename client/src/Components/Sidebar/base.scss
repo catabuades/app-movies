@@ -2,6 +2,7 @@
   width: 2.5rem;
   height: 100vh;
   transition: width 1s;
+  z-index: 4;
   &--fixed {
     width: 2.5rem;
     height: 100vh;

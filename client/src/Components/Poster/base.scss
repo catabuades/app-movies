@@ -23,8 +23,16 @@
       border-right: none;
     }
   }
+  &__imageContainer {
+    position: relative;
+    padding-top: calc((586 / 391) * 100%);
+  }
   &__image {
     width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
   }
   &__title {
     font-size: 3rem;

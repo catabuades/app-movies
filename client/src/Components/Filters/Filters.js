@@ -7,6 +7,7 @@ function Filters({ movies, isOpen, onChangeCategory, onChangeTitle }) {
   const [titles, setTitles] = useState([]);
   const [categories, setCategories] = useState([]);
   const [directors, setDirectors] = useState([]);
+  const areMoviesLoaded = useRef(false);
 
   const customStyles = {
     control: (provided, state) => ({
@@ -36,32 +37,31 @@ function Filters({ movies, isOpen, onChangeCategory, onChangeTitle }) {
     )
   }
 
-  const listMoviesTitles = (moviesCopy) => {
+  const listMoviesTitles = (movies) => {
+    const listingMovies = [...movies]
 
     setTitles(
-      moviesCopy.map(movie => ({
+      listingMovies.map(movie => ({
         value: movie.title,
         label: movie.title
       }))
     )
   }
 
-  console.log(titles)
-
   useEffect(() => {
     fetchAllCategories()
   }, [])
 
-  // useRef isMoviesLoaded false per default, i depres fer un if per comprovar si s'han de tornar a carregar o no
   useEffect(() => {
-    const moviesCopy = [...movies]
-    listMoviesTitles(moviesCopy)
+    if (movies.length && areMoviesLoaded.current === false) {
+      listMoviesTitles(movies)
+      areMoviesLoaded.current = true
+    }
   }, [movies])
 
   const handleSelectCategory = (category) => {
     onChangeCategory(category)
   };
-
 
   const handleSearchTitleChange = (title) => {
     onChangeTitle(title.value)
@@ -94,23 +94,6 @@ function Filters({ movies, isOpen, onChangeCategory, onChangeTitle }) {
             onChange={handleSearchTitleChange}
             styles={customStyles} 
             options={titles} 
-            theme={(theme) => ({
-              ...theme,
-              borderRadius: 0,
-              border: '2px solid #000000',
-              colors: {
-                ...theme.colors,
-                primary25: '#faedcd',
-                primary: '#d4a373',
-              },
-            })}
-          />
-        </div>
-        <div className="filters__input">
-          <label>By Director</label>
-          <Select 
-            styles={customStyles} 
-            options={directors} 
             theme={(theme) => ({
               ...theme,
               borderRadius: 0,
